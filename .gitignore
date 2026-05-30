@@ -9,6 +9,7 @@ node_modules/
 out/
 build/
 next-env.d.ts
+*.tsbuildinfo
 
 # Env
 .env
@@ -19,3 +20,6 @@ next-env.d.ts
 .DS_Store
 *.log
 .vercel
+
+# Local agent/preview tooling
+.claude/

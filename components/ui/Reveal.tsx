@@ -1,24 +1,37 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+
+const REDUCE_QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribeReducedMotion(onChange: () => void) {
+  const mq = window.matchMedia(REDUCE_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
+function useReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    () => window.matchMedia(REDUCE_QUERY).matches,
+    () => false,
+  );
+}
 
 export function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const reduce = useReducedMotion();
+  const [intersected, setIntersected] = useState(false);
 
   useEffect(() => {
+    if (reduce) return;
     const node = ref.current;
     if (!node) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setShown(true);
-      return;
-    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setShown(true);
+            setIntersected(true);
             observer.disconnect();
           }
         }
@@ -27,7 +40,9 @@ export function Reveal({ children }: { children: React.ReactNode }) {
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [reduce]);
+
+  const shown = reduce || intersected;
 
   return (
     <div
