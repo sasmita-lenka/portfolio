@@ -10,8 +10,8 @@ class IO {
 }
 // @ts-expect-error jsdom has no IntersectionObserver
 globalThis.IntersectionObserver = IO;
-// @ts-expect-error jsdom has no matchMedia
-globalThis.matchMedia ||= (q: string) => ({
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+(globalThis as typeof globalThis & { matchMedia?: unknown }).matchMedia ||= (q: string) => ({
   matches: false,
   media: q,
   addEventListener() {},
