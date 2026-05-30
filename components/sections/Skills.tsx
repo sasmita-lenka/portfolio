@@ -4,9 +4,9 @@ import { Tag } from "@/components/ui/Tag";
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-hairline">
+    <section id="skills" aria-labelledby="skills-heading" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-12">
-        <SectionHeading number="02" title="Skills" />
+        <SectionHeading number="02" title="Skills" id="skills-heading" />
         <div className="grid gap-x-11 sm:grid-cols-2">
           {skillGroups.map((g) => (
             <div

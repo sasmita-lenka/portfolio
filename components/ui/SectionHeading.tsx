@@ -1,16 +1,18 @@
 export function SectionHeading({
   number,
   title,
-  centered = false,
+  id,
 }: {
   number: string;
   title: string;
-  centered?: boolean;
+  id?: string;
 }) {
   return (
-    <div className={`mb-7 flex items-baseline gap-3 ${centered ? "justify-center" : ""}`}>
-      <span className="text-xs font-semibold tracking-[0.14em] text-accent">{number}</span>
+    <h2 id={id} className="mb-7 flex items-baseline gap-3">
+      <span aria-hidden="true" className="text-xs font-semibold tracking-[0.14em] text-accent">
+        {number}
+      </span>
       <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{title}</span>
-    </div>
+    </h2>
   );
 }

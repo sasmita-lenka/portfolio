@@ -3,9 +3,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Experience() {
   return (
-    <section id="experience" className="border-t border-hairline">
+    <section id="experience" aria-labelledby="experience-heading" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-12">
-        <SectionHeading number="03" title="Experience" />
+        <SectionHeading number="03" title="Experience" id="experience-heading" />
         <div>
           {experience.map((e) => (
             <article

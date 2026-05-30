@@ -4,9 +4,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export function About() {
   const { lead, body, pillars } = profile.about;
   return (
-    <section id="about" className="border-t border-hairline">
+    <section id="about" aria-labelledby="about-heading" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-12">
-        <SectionHeading number="01" title="About" />
+        <SectionHeading number="01" title="About" id="about-heading" />
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr]">
           <div>
             <p className="font-display text-xl leading-snug">{lead}</p>

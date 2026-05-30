@@ -12,10 +12,10 @@ describe("Tag", () => {
 });
 
 describe("SectionHeading", () => {
-  it("renders the number and title", () => {
+  it("renders the number and title as a level-2 heading", () => {
     render(<SectionHeading number="01" title="About" />);
     expect(screen.getByText("01")).toBeInTheDocument();
-    expect(screen.getByText("About")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "About" })).toBeInTheDocument();
   });
 });
 

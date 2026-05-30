@@ -4,9 +4,9 @@ import { Tag } from "@/components/ui/Tag";
 
 export function Work() {
   return (
-    <section id="work" className="border-t border-hairline">
+    <section id="work" aria-labelledby="work-heading" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-12">
-        <SectionHeading number="04" title="Selected Work" />
+        <SectionHeading number="04" title="Selected Work" id="work-heading" />
         <div>
           {projects.map((p, i) => (
             <article
