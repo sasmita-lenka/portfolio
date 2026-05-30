@@ -1562,7 +1562,7 @@ const description = profile.summary;
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: title, template: `%s — ${profile.name}` },
+  title,
   description,
   alternates: { canonical: "/" },
   openGraph: {
