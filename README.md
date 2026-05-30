@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sasmita Lenka - Portfolio
 
-## Getting Started
+Single-page portfolio for Sasmita Lenka, Software Engineer (backend, full-stack, fintech/payments).
 
-First, run the development server:
+- **Live:** https://sasmitalenka.com
+- **Repo:** https://github.com/sasmita-lenka/portfolio (private)
+- **Host:** Vercel
+- **Domain registrar / DNS:** GoDaddy
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- React 19 + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com) (CSS-first `@theme` tokens)
+- `next/font` (Fraunces display + Inter sans)
+- Vitest + React Testing Library
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run test` | Run unit tests (Vitest) |
+| `npm run test:watch` | Watch-mode tests |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/            App Router entry, layout, metadata, sitemap, robots, OG image, favicon
+components/     UI primitives (ui/) and page sections (sections/)
+content/        Profile, projects, experience, skills data
+lib/            SEO metadata, JSON-LD, theme tokens
+public/         Resume PDF and static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site origin used for metadata, Open Graph, sitemap, and robots. Set to `https://sasmitalenka.com` in production. |
 
-## Deploy on Vercel
+Falls back to `https://sasmitalenka.com` when unset.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Hosted on **Vercel**, deployed from the `master` branch of this repo.
+
+1. Import `sasmita-lenka/portfolio` in the Vercel dashboard (framework auto-detected as Next.js).
+2. Set `NEXT_PUBLIC_SITE_URL=https://sasmitalenka.com` in Project Settings, Environment Variables (Production).
+3. Add the domain `sasmitalenka.com` in Project Settings, Domains.
+4. Every push to `master` triggers a production deploy.
+
+### Custom domain (GoDaddy)
+
+DNS is managed at **GoDaddy**. Point the domain at Vercel using the records shown in the Vercel Domains tab. Standard values:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| `A` | `@` | `76.76.21.21` |
+| `CNAME` | `www` | `cname.vercel-dns.com` |
+
+Confirm the exact records in the Vercel dashboard before saving in GoDaddy; Vercel verifies and issues the TLS certificate automatically.
