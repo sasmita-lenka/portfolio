@@ -880,7 +880,7 @@ export function Hero() {
         {role} · {focus}
       </p>
       <h1 className="mt-4 font-display text-[clamp(2.75rem,8vw,4.5rem)] font-medium leading-[0.98] tracking-tight">
-        {headline.lead} <em className="italic text-accent">{headline.emphasis}</em>
+        {headline.lead} <em className="italic text-accent">{headline.emphasis}</em>{" "}
         <br />
         {headline.trail}
       </h1>
