@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import { MobileMenu } from "@/components/sections/MobileMenu";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -37,6 +38,7 @@ export function Nav() {
           >
             Résumé
           </a>
+          <MobileMenu links={links} />
         </div>
       </nav>
     </header>
