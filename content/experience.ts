@@ -11,7 +11,7 @@ export const experience: ExperienceEntry[] = [
   {
     kind: "work",
     period: "Nov 2022 - Present",
-    tag: "Module Lead",
+    tag: "Full-time",
     title: "Module Lead",
     org: "IServeU Technology Pvt. Ltd. · Bangalore, India",
     bullets: [
