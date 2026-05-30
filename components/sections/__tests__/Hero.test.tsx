@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 describe("Hero", () => {
   it("renders the headline words", () => {
     render(<Hero />);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Engineering trust in money.");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Building secure payment systems.");
   });
 
   it("renders both CTAs", () => {

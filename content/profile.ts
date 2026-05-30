@@ -7,7 +7,7 @@ export const profile = {
   linkedin: "https://linkedin.com/in/sasmita-lenka",
   resumeUrl: "/sasmita-lenka-resume.pdf",
   available: true,
-  headline: { lead: "Engineering", emphasis: "trust", trail: "in money." },
+  headline: { lead: "Building", emphasis: "secure", trail: "payment systems." },
   summary:
     "I build secure, high-scale payment systems (AEPS, BBPS, MATM, POS, ISO 8583) that move 2M+ transactions a day. 4+ years across Java, Spring Boot, microservices, and React.",
   metrics: [
